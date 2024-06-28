@@ -81,8 +81,15 @@ function App() {
   return (
     <>
       <div className="flex justify-center items-center h-screen flex-col">
-        <h1 className='text-2xl font-semibold'>Welcome to Tic Tac Toe</h1>
-        <p>{ winnerMessage || `Next player turn: ${currentPlayer}`}</p>
+        <h1 className='text-3xl font-semibold'>Welcome to Tic Tac Toe</h1>
+        <div>
+          <h2 className='text-xl font-semibold underline text-center'>Game instructions</h2>
+          <ol className='list-decimal list-inside space-y-2'>
+            <li>3 users can play this game</li>
+            <li>Win criteria : Continuous 5 cells to win the game</li>
+          </ol>
+        </div>
+        <p className='font-semibold'>{ winnerMessage || `Current player: ${currentPlayer}`}</p>
         <div className="board-container w-[440px] h-[440px] border border-gray-400 flex flex-wrap border-box justify-center items-center">
           {renderCells()}
         </div>
