@@ -8,7 +8,7 @@ const PLAYERS = ['X', 'Y', 'O'];
 function App() {
   
   const [currentPlayer, setCurrentPlayer] = useState('X');
-  const [winner, setWinner] = useState('');
+  const [winnerMessage, setWinnerMessage] = useState('');
 
   const handleClick = (e) => {
     if(e.target.childNodes.length === 0) {
@@ -18,6 +18,10 @@ function App() {
       setCurrentPlayer(PLAYERS[(PLAYERS.indexOf(currentPlayer) + 1) % PLAYERS.length])
     }
     return
+  }
+
+  function getWinner(winner){
+    return setWinnerMessage(`The winner is ${winner}`);
   }
 
   const renderCells = () => {
@@ -33,7 +37,7 @@ function App() {
     <>
       <div className="flex justify-center items-center h-screen flex-col">
         <h1 className='text-2xl font-semibold'>Welcome to Tic Tac Toe</h1>
-        <p>Next player turn: {currentPlayer}</p>
+        <p>{ winnerMessage || `Next player turn: ${currentPlayer}`}</p>
         <div className="board-container w-[440px] h-[440px] border border-gray-400 flex flex-wrap border-box justify-center items-center">
           {renderCells()}
         </div>
