@@ -67,16 +67,6 @@ function App() {
         return;
       }
     }
-
-    winningCombinations.forEach((combination, index) => {
-      let arrayVals = []
-      // console.log(`Combination ${index + 1}:`);
-      combination.forEach(element => {
-          const getText = document.getElementById(element)?.innerText;
-            arrayVals.push(getText);
-        });
-        setWinnerMessage(checkWinner(arrayVals, currentPlayer, winnerMessage))
-    });
   }
 
   const renderCells = () => {
