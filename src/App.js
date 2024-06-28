@@ -32,6 +32,16 @@ function App() {
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winnerMessage, setWinnerMessage] = useState(false);
 
+  function resetGame() {
+    setWinnerMessage('');
+    setCurrentPlayer('X');
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+      cell.innerHTML = ''
+    })
+
+  }
+
   const handleClick = (e) => {
     if(winnerMessage) {
       return
@@ -93,6 +103,7 @@ function App() {
         <div className="board-container w-[440px] h-[440px] border border-gray-400 flex flex-wrap border-box justify-center items-center">
           {renderCells()}
         </div>
+        <button className='py-2 px-4 bg-blue-500 my-4 text-white rounded-md' onClick={resetGame} >Reset</button>
       </div>
     </>
   );
